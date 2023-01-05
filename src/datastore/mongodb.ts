@@ -13,7 +13,7 @@ export class mongodbPersistant implements datastore {
       mongoose.set("strictQuery", false);
       await mongoose.connect(DATABASE_URL);
     } catch (err) {
-     logger.error("Something went wrong!, err: ", err);
+      logger.error("Something went wrong!, err: ", err);
       process.exit();
     }
   }
@@ -21,7 +21,7 @@ export class mongodbPersistant implements datastore {
     try {
       await mongoose.disconnect();
     } catch (err) {
-     logger.error("Something went wrong!, err: ", err);
+      logger.error("Something went wrong!, err: ", err);
     }
   }
 

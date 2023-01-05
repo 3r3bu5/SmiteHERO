@@ -3,6 +3,7 @@ import { logger } from "./utils/logger";
 import { config } from "./utils/config";
 import { mongodbStore } from "./datastore/datastore";
 import { getConsumption } from "./smiteAPI/api";
+import { seedDB } from "./seed/seed";
 
 const signals = ["SIGINT", "SIGTERM", "SIGHIP"] as const;
 
@@ -27,7 +28,8 @@ async function startServer() {
     await mongodbStore.connect(config.DATABASE_URL);
     logger.info(`Connected to DB successfully`);
     const dataUsed = await getConsumption();
-    logger.info(` API Data consumped today ${dataUsed}`);
+    logger.info(` API Data consumped today ${JSON.stringify(dataUsed)}`);
+    config.SEED_DB ? await seedDB() : logger.info(`Starting with no seeding`);
   } catch (e) {
     logger.error(`Something went wrong ${e}`);
     process.exit(1);

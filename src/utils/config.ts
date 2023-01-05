@@ -10,6 +10,7 @@ const schema = Type.Object({
   DATABASE_URL: Type.String(),
   SMITE_DEV_ID: Type.String(),
   SMITE_AUTH_KEY: Type.String(),
+  SEED_DB: Type.Boolean(),
 });
 
 type Env = Static<typeof schema>;
