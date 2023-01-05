@@ -7,7 +7,9 @@ const schema = Type.Object({
   HOST: Type.String({
     default: "0.0.0.0",
   }),
-  DATABASE_URL: Type.String()
+  DATABASE_URL: Type.String(),
+  SMITE_DEV_ID: Type.String(),
+  SMITE_AUTH_KEY: Type.String(),
 });
 
 type Env = Static<typeof schema>;
