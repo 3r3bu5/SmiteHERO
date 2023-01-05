@@ -1,8 +1,3 @@
 import pino from "pino";
-
-export const logger = pino({
-  timestamp() {
-    return ` , ${new Date().toISOString()}`;
-  },
-  prettifier: true,
-});
+import pretty from 'pino-pretty'
+export const logger = pino(pretty());
