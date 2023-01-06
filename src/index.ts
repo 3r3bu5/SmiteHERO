@@ -4,6 +4,7 @@ import { config } from "./utils/config";
 import { mongodbStore } from "./datastore/datastore";
 import { getConsumption } from "./smiteAPI/api";
 import { seedDB } from "./seed/seed";
+import godRouter from "./entities/gods/god.route";
 
 const signals = ["SIGINT", "SIGTERM", "SIGHIP"] as const;
 
@@ -21,6 +22,7 @@ async function gracefulShutdown({
 
 async function startServer() {
   const server = createServer();
+  server.use(godRouter);
   server.listen(config.PORT, config.HOST, () => {
     logger.info(`App is up and runinng on ${config.PORT}`);
   });
@@ -32,7 +34,7 @@ async function startServer() {
     config.SEED_DB ? await seedDB() : logger.info(`Starting with no seeding`);
   } catch (e) {
     logger.error(`Something went wrong ${e}`);
-    process.exit(1);
+    process.exit(0);
   }
   signals.forEach((signal) => {
     process.on(signal, () => {

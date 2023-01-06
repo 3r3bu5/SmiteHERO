@@ -33,8 +33,9 @@ export class mongodbPersistant implements datastore {
   signin(email: string): Promise<User | undefined> {
     throw new Error("Method not implemented.");
   }
-  getAllGods(): Promise<God[] | undefined> {
-    throw new Error("Method not implemented.");
+  async getAllGods(): Promise<God[] | undefined> {
+    const gods: God[] = await GodModel.find();
+    return gods;
   }
   async insertGods(gods: God[] | any): Promise<God[]> {
     await this.deleteAllGods();
