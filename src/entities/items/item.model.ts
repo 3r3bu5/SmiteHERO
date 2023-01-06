@@ -36,4 +36,4 @@ itemSchema.pre("save", function (next) {
   next();
 });
 
-export const PlayerModel = model<Item>("Item", itemSchema);
+export const ItemModel = model<Item>("Item", itemSchema);

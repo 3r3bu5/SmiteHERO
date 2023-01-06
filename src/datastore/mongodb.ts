@@ -8,7 +8,7 @@ import { datastore } from "./datastore";
 import mongoose from "mongoose";
 import { logger } from "../utils/logger";
 import { GodModel } from "../entities/gods/god.model";
-import { GetGods } from "hirez-wrapper/dist/endpoints/smite/getGods";
+import { ItemModel } from "../entities/items/item.model";
 export class mongodbPersistant implements datastore {
   async connect(DATABASE_URL: string) {
     try {
@@ -65,6 +65,15 @@ export class mongodbPersistant implements datastore {
   }
   getAllItems(): Promise<Item[] | undefined> {
     throw new Error("Method not implemented.");
+  }
+  async insertItems(Items: Item[] | any): Promise<Item[]> {
+    await this.deleteAllItems();
+    const insertedItems = await ItemModel.insertMany(Items);
+    return insertedItems;
+  }
+  async deleteAllItems(): Promise<void> {
+    await ItemModel.deleteMany();
+    return;
   }
   getAchievementsByPlayerID(
     playerId: string
