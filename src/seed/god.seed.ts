@@ -7,9 +7,3 @@ export async function godSeed(): Promise<void> {
   await mongodbStore.insertGods(gods);
   logger.info(`Seed Gods Successfully`);
 }
-
-export async function itemSeed(): Promise<void> {
-  const Item = await getItems("english");
-  await mongodbStore.insertItems(Item);
-  logger.info(`Seed Items Successfully`);
-}
