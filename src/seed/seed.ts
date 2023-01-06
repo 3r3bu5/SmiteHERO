@@ -1,5 +1,6 @@
 import { logger } from "../utils/logger";
-import { godSeed, itemSeed } from "./god.seed";
+import { godSeed } from "./god.seed";
+import { itemSeed } from "./item.seed";
 
 export async function seedDB(): Promise<void> {
   try {
