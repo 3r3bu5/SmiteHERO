@@ -5,7 +5,8 @@ import { mongodbStore } from "./datastore/datastore";
 import { getConsumption } from "./smiteAPI/api";
 import { seedDB } from "./seed/seed";
 import godRouter from "./entities/gods/god.route";
-
+import cors from "cors";
+import itemRouter from "./entities/items/item.route";
 const signals = ["SIGINT", "SIGTERM", "SIGHIP"] as const;
 
 async function gracefulShutdown({
@@ -22,7 +23,10 @@ async function gracefulShutdown({
 
 async function startServer() {
   const server = createServer();
+  server.use(cors());
   server.use(godRouter);
+  server.use(itemRouter);
+
   server.listen(config.PORT, config.HOST, () => {
     logger.info(`App is up and runinng on ${config.PORT}`);
   });

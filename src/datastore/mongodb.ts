@@ -64,8 +64,9 @@ export class mongodbPersistant implements datastore {
   getBuildsByGod(godId: string): Promise<Build[] | undefined> {
     throw new Error("Method not implemented.");
   }
-  getAllItems(): Promise<Item[] | undefined> {
-    throw new Error("Method not implemented.");
+  async getAllItems(): Promise<Item[] | undefined> {
+    const items: Item[] = await ItemModel.find();
+    return items;
   }
   async insertItems(Items: Item[] | any): Promise<Item[]> {
     await this.deleteAllItems();
