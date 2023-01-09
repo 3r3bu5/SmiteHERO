@@ -6,6 +6,7 @@
 - [ ] implement schema validation for endpoints
 - [ ] Create Response type for controllers
 - [ ] User auth & JWT
+- [ ] Create unit and integration test
 
 ### Problems
 

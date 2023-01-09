@@ -1,12 +1,16 @@
 import { Request, Response } from "express";
 import { mongodbStore } from "../../datastore/datastore";
 import { logger } from "../../utils/logger";
+import { createBuildInputInterface } from "./build.schema";
 
-const createBuild = async (req: Request, res: Response) => {
-  const { mode, items, godId, authorId } = req.body;
+const createBuild = async (
+  req: Request<{}, {}, createBuildInputInterface["body"]>,
+  res: Response
+) => {
+  const { mode, items, godId } = req.body;
   try {
     const build = await mongodbStore.createBuild({
-      authorId,
+      authorId: 55,
       items,
       godId,
       mode,
