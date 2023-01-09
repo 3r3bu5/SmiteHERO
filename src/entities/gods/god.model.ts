@@ -1,5 +1,5 @@
 import { model, Schema, Types } from "mongoose";
-import { God } from "./God";
+import { God } from "../../../shared/god";
 
 const Menuitem = {
   description: String,

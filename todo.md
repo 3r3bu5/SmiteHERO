@@ -1,6 +1,9 @@
 ### TODO
 
-- [ ] Seeding data into DB
+- [x] Seeding data into DB
+- [x] export entities types, response type to use in the client
+- [ ] Implement create Build
+- [ ] Create Response type for controllers
 
 ### Problems
 

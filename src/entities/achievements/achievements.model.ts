@@ -1,5 +1,5 @@
 import mongoose, { model, Schema, Types } from "mongoose";
-import { Achievements } from "./achievements";
+import { Achievements } from "../../../shared/achievements";
 
 const achievementSchema = new Schema<Achievements>(
   {

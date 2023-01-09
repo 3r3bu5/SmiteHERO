@@ -1,4 +1,4 @@
-import { User } from "./user";
+import { User } from "../../../shared/user";
 
 export interface userDAO {
   signup(email: string): Promise<User>;

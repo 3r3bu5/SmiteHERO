@@ -1,5 +1,5 @@
 import mongoose, { model, Schema, Types } from "mongoose";
-import { Build } from "./build";
+import { Build } from "../../../shared/build";
 
 const buildSchema = new Schema<Build>(
   {

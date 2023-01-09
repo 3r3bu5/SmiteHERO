@@ -1,9 +1,9 @@
-import { Achievements } from "../entities/achievements/achievements";
-import { Build } from "../entities/builds/build";
-import { God } from "../entities/gods/god";
-import { Item } from "../entities/items/item";
-import { Player } from "../entities/players/player";
-import { User } from "../entities/users/user";
+import { Achievements } from "../../shared/achievements";
+import { Build } from "../../shared/build";
+import { God } from "../../shared/god";
+import { Item } from "../../shared/item";
+import { Player } from "../../shared/player";
+import { User } from "../../shared/user";
 import { datastore } from "./datastore";
 import mongoose from "mongoose";
 import { logger } from "../utils/logger";

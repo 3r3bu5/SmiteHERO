@@ -1,5 +1,5 @@
 import { model, Schema, Types } from "mongoose";
-import { Player } from "./player";
+import { Player } from "../../../shared/player";
 
 const playerSchema = new Schema<Player>(
   {

@@ -1,4 +1,5 @@
-import { Build } from "./build";
+import { Build } from "../../../shared/build";
+
 export interface buildDAO {
   createBuild(build: Build): Promise<void>;
   getAllBuilds(): Promise<Build[] | undefined>;

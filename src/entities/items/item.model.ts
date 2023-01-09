@@ -1,5 +1,5 @@
 import { model, Schema, Types } from "mongoose";
-import { Item } from "./Item";
+import { Item } from "../../../shared/item";
 
 const itemSchema = new Schema<Item>(
   {
