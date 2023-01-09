@@ -3,7 +3,6 @@ import { Build } from "../../../shared/build";
 
 const buildSchema = new Schema<Build>(
   {
-    _id: String,
     authorId: Number,
     godId: Number,
     upvotes: Number,

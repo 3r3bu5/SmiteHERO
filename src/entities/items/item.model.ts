@@ -31,9 +31,5 @@ const itemSchema = new Schema<Item>(
     },
   }
 );
-itemSchema.pre("save", function (next) {
-  this._id = new Types.ObjectId(this.ItemId);
-  next();
-});
 
 export const ItemModel = model<Item>("Item", itemSchema);

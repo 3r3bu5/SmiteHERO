@@ -3,7 +3,9 @@
 - [x] Seeding data into DB
 - [x] export entities types, response type to use in the client
 - [ ] Implement create Build
+- [ ] implement schema validation for endpoints
 - [ ] Create Response type for controllers
+- [ ] User auth & JWT
 
 ### Problems
 

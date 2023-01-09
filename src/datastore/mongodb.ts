@@ -9,6 +9,7 @@ import mongoose from "mongoose";
 import { logger } from "../utils/logger";
 import { GodModel } from "../entities/gods/god.model";
 import { ItemModel } from "../entities/items/item.model";
+import { buildModel } from "../entities/builds/build.model";
 export class mongodbPersistant implements datastore {
   async connect(DATABASE_URL: string) {
     try {
@@ -52,11 +53,16 @@ export class mongodbPersistant implements datastore {
   getPlayerById(id: string): Promise<Player | undefined> {
     throw new Error("Method not implemented.");
   }
-  createBuild(build: Build): Promise<void> {
-    throw new Error("Method not implemented.");
+  async createBuild(
+    build: Pick<Build, "authorId" | "godId" | "items" | "mode">
+  ): Promise<Build> {
+    const createdBuild = await buildModel.create(build);
+    const savedBuild = await createdBuild.save();
+    return savedBuild;
   }
-  getAllBuilds(): Promise<Build[] | undefined> {
-    throw new Error("Method not implemented.");
+  async getAllBuilds(): Promise<Build[] | undefined> {
+    const builds = await buildModel.find().populate("items");
+    return builds;
   }
   getBuildById(id: string): Promise<Build | undefined> {
     throw new Error("Method not implemented.");

@@ -7,6 +7,8 @@ import { seedDB } from "./seed/seed";
 import godRouter from "./entities/gods/god.route";
 import cors from "cors";
 import itemRouter from "./entities/items/item.route";
+import buildRouter from "./entities/builds/build.route";
+
 const signals = ["SIGINT", "SIGTERM", "SIGHIP"] as const;
 
 async function gracefulShutdown({
@@ -26,6 +28,7 @@ async function startServer() {
   server.use(cors());
   server.use(godRouter);
   server.use(itemRouter);
+  server.use(buildRouter);
 
   server.listen(config.PORT, config.HOST, () => {
     logger.info(`App is up and runinng on ${config.PORT}`);
