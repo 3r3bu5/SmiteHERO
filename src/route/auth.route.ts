@@ -1,15 +1,7 @@
 import { Router } from "express";
 import passport from "passport";
-import { UserDocument } from "../entities/users/user.model";
 import { signJWT } from "../utils/jwt";
 
-declare global {
-  namespace Express {
-    interface User extends UserDocument {
-      _id?: any;
-    }
-  }
-}
 const authRoute = Router();
 authRoute.get(
   "/auth/google",
@@ -24,6 +16,7 @@ authRoute.get(
   passport.authenticate("google", { session: false }),
   (req, res) => {
     if (req.user) {
+      //@ts-ignore
       const jwt = signJWT({ id: req.user._id });
       return res.status(200).send({ jwt });
     }

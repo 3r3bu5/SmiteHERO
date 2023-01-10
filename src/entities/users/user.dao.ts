@@ -1,4 +1,4 @@
-import { createUserInterface, User } from "../../../shared/user";
+import { createUserInterface, User } from "@ash/shared";
 import { UserDocument } from "./user.model";
 
 export interface userDAO {

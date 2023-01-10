@@ -1,5 +1,5 @@
-import mongoose, { model, Schema, Types } from "mongoose";
-import { Build } from "../../../shared/build";
+import mongoose, { model, Schema } from "mongoose";
+import { Build } from "../../../shared/types/entities";
 
 const buildSchema = new Schema<Build>(
   {

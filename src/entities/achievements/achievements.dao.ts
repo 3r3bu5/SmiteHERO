@@ -1,4 +1,4 @@
-import { Achievements } from "../../../shared/achievements";
+import { Achievements } from "@ash/shared";
 
 export interface achDAO {
   getAchievementsByPlayerID(

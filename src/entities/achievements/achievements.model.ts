@@ -1,5 +1,5 @@
-import mongoose, { model, Schema, Types } from "mongoose";
-import { Achievements } from "../../../shared/achievements";
+import { model, Schema } from "mongoose";
+import { Achievements } from "../../../shared/types/entities";
 
 const achievementSchema = new Schema<Achievements>(
   {
@@ -32,13 +32,10 @@ const achievementSchema = new Schema<Achievements>(
   {
     timestamps: {
       createdAt: "savedAt",
+      updatedAt: false,
     },
   }
 );
-achievementSchema.pre("save", function (next) {
-  this._id = new Types.ObjectId(this.Id);
-  next();
-});
 
 export const AchievementsModel = model<Achievements>(
   "Achievement",

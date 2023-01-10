@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { mongodbStore } from "../../datastore/datastore";
 import { logger } from "../../utils/logger";
-import { Item } from "../../../shared/item";
+import { Item } from "@ash/shared";
 
 export const getAllItems = async (req: Request, res: Response) => {
   try {

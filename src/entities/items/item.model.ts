@@ -1,5 +1,5 @@
-import { model, Schema, Types } from "mongoose";
-import { Item } from "../../../shared/item";
+import { model, Schema } from "mongoose";
+import { Item } from "@ash/shared";
 
 const itemSchema = new Schema<Item>(
   {
@@ -28,6 +28,7 @@ const itemSchema = new Schema<Item>(
   {
     timestamps: {
       createdAt: "savedAt",
+      updatedAt: false,
     },
   }
 );

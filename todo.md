@@ -2,12 +2,12 @@
 
 - [x] Seeding data into DB
 - [x] export entities types, response type to use in the client
-- [ ] Implement create Build
-- [ ] implement schema validation for endpoints
+- [x] Implement create Build
+- [x] implement schema validation for endpoints
 - [ ] Create Response type for controllers
-- [ ] User auth & JWT
+- [x] User auth & JWT
 - [ ] Create unit and integration test
-- [ ] Create a model interface extends document in mongoose for every entity
+- [x] Create a model interface extends document in mongoose for every entity [instead of using document directly I edited the document interface to add the extra fields I need]
 
 ### Problems
 

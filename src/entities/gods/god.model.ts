@@ -1,5 +1,5 @@
-import { model, Schema, Types } from "mongoose";
-import { God } from "../../../shared/god";
+import { model, Schema } from "mongoose";
+import { God } from "@ash/shared";
 
 const Menuitem = {
   description: String,
@@ -451,8 +451,5 @@ const godSchema = new Schema<God>(
     },
   }
 );
-godSchema.pre("save", function (next) {
-  (this._id = new Types.ObjectId(this.id)), next();
-});
 
 export const GodModel = model<God>("God", godSchema);

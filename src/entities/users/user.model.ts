@@ -1,24 +1,12 @@
-import { Schema, model, Document } from "mongoose";
-import { User } from "../../../shared/user";
-
-export type UserDocument = Document & {
-  username: string;
-  email: string;
-  googleId: string;
-  steamId: string;
-  active: boolean;
-  inGameUsername: string;
-  karma: number;
-  createdAt: string;
-  updatedAt: string;
-};
+import { Schema, model } from "mongoose";
+import { User } from "@ash/shared";
 
 const stringWithReqAndUnique = {
   type: String,
   required: true,
   unique: true,
 };
-const userSchema = new Schema<UserDocument>(
+const userSchema = new Schema<User>(
   {
     username: stringWithReqAndUnique,
     email: stringWithReqAndUnique,
@@ -46,4 +34,4 @@ const userSchema = new Schema<UserDocument>(
   { timestamps: true }
 );
 
-export const UserModel = model<UserDocument>("User", userSchema);
+export const UserModel = model<User>("User", userSchema);

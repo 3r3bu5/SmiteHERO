@@ -1,4 +1,4 @@
-import { God } from "../../../shared/god";
+import { God } from "@ash/shared";
 
 export interface GodDAO {
   getAllGods(): Promise<God[] | undefined>;

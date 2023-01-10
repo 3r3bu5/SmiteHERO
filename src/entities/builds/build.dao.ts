@@ -1,4 +1,4 @@
-import { Build } from "../../../shared/build";
+import { Build } from "@ash/shared";
 
 export interface buildDAO {
   createBuild(build: Build): Promise<Build>;

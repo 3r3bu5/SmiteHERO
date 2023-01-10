@@ -1,18 +1,22 @@
-import { model, Schema, Types } from "mongoose";
-import { Player } from "../../../shared/player";
+import { model, Schema } from "mongoose";
+import { Player } from "@ash/shared";
 
+const stats = {
+  Leaves: Number,
+  Losses: Number,
+  Name: String,
+  Points: Number,
+  PrevRank: Number,
+  Rank: Number,
+  Rank_Stat: Number,
+  Season: Number,
+  Tier: Number,
+  Trend: Number,
+  Wins: Number,
+};
 const playerSchema = new Schema<Player>(
   {
-    Id: {
-      type: Number,
-      required: true,
-      unique: true,
-    },
-    ActivePlayerId: {
-      type: Number,
-      required: true,
-      unique: true,
-    },
+    ActivePlayerId: Number,
     Avatar_URL: String,
     Created_Datetime: String,
     HoursPlayed: Number,
@@ -30,84 +34,12 @@ const playerSchema = new Schema<Player>(
     Rank_Stat_Duel_Controller: Number,
     Rank_Stat_Joust: Number,
     Rank_Stat_Joust_Controller: Number,
-    RankedConquest: {
-      Leaves: Number,
-      Losses: Number,
-      Name: String,
-      Points: Number,
-      PrevRank: Number,
-      Rank: Number,
-      Rank_Stat: Number,
-      Season: Number,
-      Tier: Number,
-      Trend: Number,
-      Wins: Number,
-    },
-    RankedConquestController: {
-      Leaves: Number,
-      Losses: Number,
-      Name: String,
-      Points: Number,
-      PrevRank: Number,
-      Rank: Number,
-      Rank_Stat: Number,
-      Season: Number,
-      Tier: Number,
-      Trend: Number,
-      Wins: Number,
-    },
-    RankedDuel: {
-      Leaves: Number,
-      Losses: Number,
-      Name: String,
-      Points: Number,
-      PrevRank: Number,
-      Rank: Number,
-      Rank_Stat: Number,
-      Season: Number,
-      Tier: Number,
-      Trend: Number,
-      Wins: Number,
-    },
-    RankedDuelController: {
-      Leaves: Number,
-      Losses: Number,
-      Name: String,
-      Points: Number,
-      PrevRank: Number,
-      Rank: Number,
-      Rank_Stat: Number,
-      Season: Number,
-      Tier: Number,
-      Trend: Number,
-      Wins: Number,
-    },
-    RankedJoust: {
-      Leaves: Number,
-      Losses: Number,
-      Name: String,
-      Points: Number,
-      PrevRank: Number,
-      Rank: Number,
-      Rank_Stat: Number,
-      Season: Number,
-      Tier: Number,
-      Trend: Number,
-      Wins: Number,
-    },
-    RankedJoustController: {
-      Leaves: Number,
-      Losses: Number,
-      Name: String,
-      Points: Number,
-      PrevRank: Number,
-      Rank: Number,
-      Rank_Stat: Number,
-      Season: Number,
-      Tier: Number,
-      Trend: Number,
-      Wins: Number,
-    },
+    RankedConquest: stats,
+    RankedConquestController: stats,
+    RankedDuel: stats,
+    RankedDuelController: stats,
+    RankedJoust: stats,
+    RankedJoustController: stats,
     Region: String,
     TeamId: String,
     Team_Name: String,
@@ -123,12 +55,9 @@ const playerSchema = new Schema<Player>(
   {
     timestamps: {
       createdAt: "savedAt",
+      updatedAt: false,
     },
   }
 );
-playerSchema.pre("save", function (next) {
-  this._id = new Types.ObjectId(this.Id);
-  next();
-});
 
 export const PlayerModel = model<Player>("Player", playerSchema);
