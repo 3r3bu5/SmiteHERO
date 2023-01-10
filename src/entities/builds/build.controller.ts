@@ -10,7 +10,7 @@ const createBuild = async (
   const { mode, items, godId } = req.body;
   try {
     const build = await mongodbStore.createBuild({
-      authorId: 55,
+      authorId: res.locals.user,
       items,
       godId,
       mode,
