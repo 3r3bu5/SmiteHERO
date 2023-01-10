@@ -11,6 +11,9 @@ const schema = Type.Object({
   SMITE_DEV_ID: Type.String(),
   SMITE_AUTH_KEY: Type.String(),
   SEED_DB: Type.Boolean(),
+  GOOGLE_CLIENT_ID: Type.String(),
+  GOOGLE_CLIENT_SECRET: Type.String(),
+  JWT_SECRET: Type.String(),
 });
 
 type Env = Static<typeof schema>;

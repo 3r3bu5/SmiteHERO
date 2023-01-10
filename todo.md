@@ -7,6 +7,7 @@
 - [ ] Create Response type for controllers
 - [ ] User auth & JWT
 - [ ] Create unit and integration test
+- [ ] Create a model interface extends document in mongoose for every entity
 
 ### Problems
 

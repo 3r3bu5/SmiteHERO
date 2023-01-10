@@ -9,7 +9,8 @@
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "typeRoots": ["./src/types/", "./node_modules/@types"]
   },
   "exclude": [
     "nclient/.next/**/*" // This is what fixed it!

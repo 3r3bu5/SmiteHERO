@@ -4,4 +4,5 @@ prettierrc.json
 .gitignore
 .prettierignore
 nclient
+commitlint.config.js
 

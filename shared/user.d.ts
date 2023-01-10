@@ -5,7 +5,15 @@ export interface User {
   steamId: string;
   inGameUsername: string;
   karma: number;
+  googleId: string;
   active: true;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface createUserInterface {
+  googleId: string;
+  name: string;
+  email: string | undefined;
+  username: string | undefined;
 }

@@ -8,6 +8,10 @@ import godRouter from "./entities/gods/god.route";
 import cors from "cors";
 import itemRouter from "./entities/items/item.route";
 import buildRouter from "./entities/builds/build.route";
+import authRoute from "./route/auth.route";
+import "./config/passport.config";
+import passport from "passport";
+import { authMiddleware } from "./middleware/auth.midd";
 
 const signals = ["SIGINT", "SIGTERM", "SIGHIP"] as const;
 
@@ -28,6 +32,8 @@ async function startServer() {
   server.use(cors());
   server.use(godRouter);
   server.use(itemRouter);
+  server.use(authRoute);
+  server.use(authMiddleware);
   server.use(buildRouter);
 
   server.listen(config.PORT, config.HOST, () => {

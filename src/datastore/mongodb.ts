@@ -3,13 +3,14 @@ import { Build } from "../../shared/build";
 import { God } from "../../shared/god";
 import { Item } from "../../shared/item";
 import { Player } from "../../shared/player";
-import { User } from "../../shared/user";
+import { createUserInterface, User } from "../../shared/user";
 import { datastore } from "./datastore";
 import mongoose from "mongoose";
 import { logger } from "../utils/logger";
 import { GodModel } from "../entities/gods/god.model";
 import { ItemModel } from "../entities/items/item.model";
 import { buildModel } from "../entities/builds/build.model";
+import { UserDocument, UserModel } from "../entities/users/user.model";
 export class mongodbPersistant implements datastore {
   async connect(DATABASE_URL: string) {
     try {
@@ -28,11 +29,27 @@ export class mongodbPersistant implements datastore {
     }
   }
 
+  async auth(user: createUserInterface): Promise<UserDocument> {
+    const foundUser = await UserModel.findOne({ googleId: user.googleId });
+    if (foundUser) {
+      return foundUser;
+    }
+    const createdUser = await UserModel.create({ ...user });
+    await createdUser.save();
+    return createdUser;
+  }
   signup(email: string): Promise<User> {
     throw new Error("Method not implemented.");
   }
   signin(email: string): Promise<User | undefined> {
     throw new Error("Method not implemented.");
+  }
+  async getUserById(id: string): Promise<UserDocument | undefined> {
+    const user = await UserModel.findById(id);
+    if (user) {
+      return user;
+    }
+    return undefined;
   }
   async getAllGods(): Promise<God[] | undefined> {
     const gods: God[] = await GodModel.find();
