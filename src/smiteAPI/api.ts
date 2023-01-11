@@ -9,10 +9,8 @@ export const getConsumption = async (): Promise<GetDataUsed> => {
   return await smite.getDataUsed();
 };
 export const getAllGods = async (): Promise<GetGods> => {
-  const gods = await smite.getGods("english");
-  return gods;
+  return await smite.getGods("english");
 };
 export const getAllItems = async (): Promise<GetItems> => {
-  const items = await smite.getItems("english");
-  return items;
+  return await smite.getItems("english");
 };
