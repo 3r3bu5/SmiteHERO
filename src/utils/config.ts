@@ -14,6 +14,7 @@ const schema = Type.Object({
   GOOGLE_CLIENT_ID: Type.String(),
   GOOGLE_CLIENT_SECRET: Type.String(),
   JWT_SECRET: Type.String(),
+  MONGO_TEST_URI: Type.String(),
 });
 
 type Env = Static<typeof schema>;

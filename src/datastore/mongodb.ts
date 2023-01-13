@@ -28,6 +28,26 @@ export class mongodbPersistant implements datastore {
       logger.error("Something went wrong!, err: ", err);
     }
   }
+  async truncate(model: string) {
+    try {
+      switch (model) {
+        case "User":
+          await UserModel.deleteMany();
+          break;
+        case "God":
+          await GodModel.deleteMany();
+          break;
+        case "Item":
+          await ItemModel.deleteMany();
+          break;
+        case "Build":
+          await buildModel.deleteMany();
+          break;
+      }
+    } catch (err) {
+      logger.error("Something went wrong!, err: ", err);
+    }
+  }
 
   async auth(user: createUserInterface): Promise<User> {
     const foundUser = await UserModel.findOne({ googleId: user.googleId });
@@ -61,7 +81,7 @@ export class mongodbPersistant implements datastore {
     return insertedGod;
   }
   async deleteAllGods(): Promise<void> {
-    await GodModel.deleteMany();
+    await this.truncate("God");
     return;
   }
   getPlayerByName(name: string): Promise<Player | undefined> {
@@ -97,7 +117,7 @@ export class mongodbPersistant implements datastore {
     return insertedItems;
   }
   async deleteAllItems(): Promise<void> {
-    await ItemModel.deleteMany();
+    await this.truncate("Item");
     return;
   }
   getAchievementsByPlayerID(
