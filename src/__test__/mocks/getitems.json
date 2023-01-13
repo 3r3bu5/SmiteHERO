@@ -1,0 +1,30 @@
+{
+  "ActiveFlag": "y",
+  "ChildItemId": 0,
+  "DeviceName": "Iron Mail",
+  "IconId": 2866,
+  "ItemDescription": {
+    "Description": "Physical Protection and Health.",
+    "Menuitems": [
+      {
+        "Description": "Health",
+        "Value": "+75"
+      },
+      {
+        "Description": "Physical Protection",
+        "Value": "+10"
+      }
+    ],
+    "SecondaryDescription": null
+  },
+  "ItemId": 7526,
+  "ItemTier": 1,
+  "Price": 650,
+  "RestrictedRoles": "no restrictions",
+  "RootItemId": 7526,
+  "ShortDesc": "Physical Protection and Health.",
+  "StartingItem": false,
+  "Type": "Item",
+  "itemIcon_URL": "https://web2.hirez.com/smite/item-icons/iron-mail.jpg",
+  "ret_msg": null
+}
