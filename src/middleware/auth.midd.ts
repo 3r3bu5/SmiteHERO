@@ -12,13 +12,12 @@ export const authMiddleware = async (
     if (!token) {
       return res.status(401).send({ error: "Unauthorized Access" });
     }
-
     const userId = verifyJWT(token[1]);
     const user = await mongodbStore.getUserById(userId.id);
     if (!user) {
       return res.status(401).send({ error: "Unauthorized Access" });
     }
-    res.locals.userId = userId.id;
+    req.user = user;
     next();
   } catch (err) {
     next(err);

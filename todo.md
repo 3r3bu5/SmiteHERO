@@ -6,8 +6,16 @@
 - [x] implement schema validation for endpoints
 - [ ] Create Response type for controllers
 - [x] User auth & JWT
-- [ ] Create unit and integration test
+- [x] Create unit and integration test
 - [x] Create a model interface extends document in mongoose for every entity [instead of using document directly I edited the document interface to add the extra fields I need]
+- [ ] Implement the auth for the client side nextjs app
+- [ ] Create an implementation to save sessions even after the server restarts
+- [ ] Add a monitoring tool
+- [ ] Add an auditing
+- [ ] Add a CI/CD
+- [ ] Add caching
+- [ ] Add a rate-limiting
+- [ ] Add a tests for auth
 
 ### Problems
 
