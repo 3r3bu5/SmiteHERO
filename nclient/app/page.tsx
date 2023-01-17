@@ -12,14 +12,7 @@ export default function SmiteHero() {
   };
   return (
     <>
-      <div>SmiteHero</div>
-      <Link href={"/gods"}>Gods</Link>
-      <Link href={"/items"}>Items</Link>
-      {isAuth && <div>
-        <Link href={"/profile"}>Profile</Link>
-        <button onClick={logout}>Logout</button>
-      </div> }
-      <Link href={"/auth"}> Login </Link>
+     <div> Hello Mama! </div>
     </>
   );
 }
