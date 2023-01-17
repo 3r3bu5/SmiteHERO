@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { Item } from "../../../shared/item";
+import { Item } from "@ash/shared";
 async function getData() {
   const res = await fetch("http://127.0.0.1:4000/api/v1/items", {
     cache: "force-cache",

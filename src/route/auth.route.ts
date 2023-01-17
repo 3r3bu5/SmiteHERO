@@ -27,7 +27,6 @@ authRoute.get(
 
 authRoute.get("/auth/user", authMiddleware, (req: Request, res: Response) => {
   if (req.user) {
-    console.log(req.user);
     // @ts-ignore
     const jwt = signJWT({ id: req.user._id });
     return res.status(200).send({ user: req.user, jwt });
